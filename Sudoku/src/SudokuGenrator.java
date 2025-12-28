@@ -436,10 +436,6 @@ public class SudokuGenrator {
     private static int[][] answer   = new int[N][N];
     private static Random rand = new Random();
 
-    // =======================
-    // PUBLIC API (UNCHANGED)
-    // =======================
-
     public static int[][] Generate(int difficulty) {
         generateNewSudoku(difficulty);
         return copy(question);
@@ -448,10 +444,6 @@ public class SudokuGenrator {
     public static int[][] Ans(int difficulty) {
         return copy(answer);
     }
-
-    // =======================
-    // INTERNAL LOGIC
-    // =======================
 
     private static void generateNewSudoku(int difficulty) {
         int[][] full = new int[N][N];
@@ -467,10 +459,6 @@ public class SudokuGenrator {
         int removals = getRemovalCount(difficulty);
         removeCells(question, removals);
     }
-
-    // =======================
-    // SOLUTION GENERATION (BACKTRACKING)
-    // =======================
 
     private static void fillDiagonal(int[][] board) {
         for (int i = 0; i < N; i += 3)
@@ -530,9 +518,6 @@ public class SudokuGenrator {
         return true;
     }
 
-    // =======================
-    // PUZZLE CREATION
-    // =======================
 
     private static void removeCells(int[][] board, int count) {
         while (count > 0) {
@@ -551,10 +536,6 @@ public class SudokuGenrator {
         if (difficulty == 3) return 55;
         return 45;
     }
-
-    // =======================
-    // UTIL
-    // =======================
 
     private static int[][] copy(int[][] src) {
         int[][] dst = new int[N][N];

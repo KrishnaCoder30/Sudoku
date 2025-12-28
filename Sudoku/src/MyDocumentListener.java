@@ -19,7 +19,7 @@ public class MyDocumentListener implements DocumentListener {
 
     @Override
     public void changedUpdate(DocumentEvent e) {
-        // not used for JTextField
+       
     }
 
     private void handleChange(DocumentEvent e) {
@@ -48,18 +48,15 @@ public class MyDocumentListener implements DocumentListener {
 
             int val = Integer.parseInt(text);
 
-            // 🔥 TEMPORARILY place value
             int old = Sudoku.board[r][c];
             Sudoku.board[r][c] = val;
 
-            // 🔥 NOW validate
             if (!Sudoku.isValid(Sudoku.board, new Point(r, c), val)) {
                 Sudoku.board[r][c] = old;   // revert
                 showErrorAndClear(field);
                 return;
             }
 
-            // ✅ VALID ENTRY
             Sudoku.board[r][c] = val;
 
         } catch (Exception ex) {
@@ -77,7 +74,6 @@ public class MyDocumentListener implements DocumentListener {
             JOptionPane.ERROR_MESSAGE
         );
 
-        // 🔥 Defer text clearing to avoid re-entrant DocumentEvent
         SwingUtilities.invokeLater(() -> {
             field.setText("");
             internalChange = false;

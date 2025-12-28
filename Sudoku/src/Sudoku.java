@@ -65,11 +65,11 @@ public class Sudoku {
 
             for (int j = 0; j < 9; j++) {
                 grid[i][j] = new JTextField();    
-                grid[i][j].putClientProperty("row", i);   // 🔥 REQUIRED
-                grid[i][j].putClientProperty("col", j);   // 🔥 REQUIRED
+                grid[i][j].putClientProperty("row", i);   
+                grid[i][j].putClientProperty("col", j);  
                 grid[i][j].setBounds(
-                    (j + 1 + j / 3) * h,   // column → X
-                    (i + 1 + i / 3) * w,   // row    → Y
+                    (j + 1 + j / 3) * h, 
+                    (i + 1 + i / 3) * w,   
                     hi, wi
                 );
                 grid[i][j].setOpaque(true);
@@ -350,15 +350,15 @@ public class Sudoku {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                // if (countHint >= 3) {
-                //     JOptionPane.showMessageDialog(
-                //         null,
-                //         "Behnchod Kitne Hints Laga IIT m AAgaya hai na",
-                //         "Galli Galloch",
-                //         JOptionPane.WARNING_MESSAGE
-                //     );
-                //     return;
-                // }
+                if (countHint >= 3) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Behnchod Kitne Hints Laga IIT m AAgaya hai na",
+                        "Galli Galloch",
+                        JOptionPane.WARNING_MESSAGE
+                    );
+                    return;
+                }
 
                 int i, j;
                 try {
